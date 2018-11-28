@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Steve Hansen is Here Now</title>
+    <title>Steve Hansen Blog Pages</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" 
@@ -32,40 +32,54 @@
           <div class="navbar-nav ml-auto">  <!-- ml-auto is to right justify-->
             <a class="nav-item nav-link" href="#">Twitter </a>
             <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link" active href="#">Blog</a>
           </div>
         </div>
       </nav>  
     </header>
 
-    <main role="main">
+    <main role="main" class="container">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded shadow-sm">
+            <!--<img class="mr-3" src="../../assets/brand/bootstrap-outline.svg" alt="" width="48" height="48"> -->
+            <div class="lh-100">
+                <h3 class="lh-100 text-white">Cocubed WHEIE Workshop</h3>
+                <small>Attendees</small>
+            </div>
+        </div>
 
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <td><a href="https://cocubed.org/katie-dickinson/">Katie Dickinson</a></td>
+                    <td><img src="https://cocubed.org/wp-content/uploads/2018/06/Dickinson_web2.jpg" alt="Katie" style="width:120px;height:120px;"></td>
+                </tr> 
+        </div>
+            
+      <!--
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Hi, Steve is here.</h1>
-          <p class="lead text-muted">I'm loving retirement.  I'm so busy with my little projects, working on my causes, meditating.</p>
-          <p>
-            <a href="mailto:steven.e.hansen@gmail.com" class="btn btn-primary my-2">Email Me</a>
-          </p>
+          <h1 class="jumbotron-heading">Welcome to Steve's blog</h1>
+          <p class="lead text-muted">Lastest Posts</p>
         </div>
-      </section>
+      </section> -->      
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+            {% for blog in blogs.all %}
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{ job.image.url }}">
-                <div class="card-body">
-                    <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
+            <div class="media text-muted pt-3">
+              <img src="{{ blog.image.url }}" alt="" class="mr-2 rounded">
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">{{ blog.title }}</strong>
+                {{ blog.body }}
+              </p>
             </div>
             {% endfor %}
-        </div>
-        </div>
+            <small class="d-block text-right mt-3">
+              <a href="#">All updates</a>
+            </small>
+          </div>
+    
+    
       </div>
 
     </main>

@@ -5,5 +5,4 @@ class Blog( models.Model ):
     body = models.TextField( max_length=2000 )
     title = models.CharField( max_length=255 )
     pub_date = models.DateTimeField()
-    body = models.TextField()
 
